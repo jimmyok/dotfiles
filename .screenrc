@@ -1,0 +1,50 @@
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+startup_message off
+#caption always "%{sb}[%{R}%l%{d}] %=[Title %{R}%t%{d}]"
+caption always "%?%F%{= Kk}%:%{=u kR}%? [%H] %h %-024=%{+b} %C%a %D %d %M %Y%{= dd}"
+defscrollback 30000
+
+#termcapinfo xterm* ti@:te@
+screen -t screen0 bash
+# bind F7 to detach screen session from this terminal
+# bind F8 to kill current screen window.
+# bind F9 to create a new screen
+# bind F10 to rename current screen window
+# bind F11 to move to previous window
+# bind F12 to move to next window
+#bindkey -k k7 detach
+#bindkey -k k8 kill
+#bindkey -k k9 screen
+#bindkey -k k; title
+#bindkey -k F1 prev
+#bindkey -k F2 next
+
+bindkey -k k1 select 1  #  F1 = screen 1
+bindkey -k k2 select 2  #  F2 = screen 2
+bindkey -k k3 select 3  #  F3 = screen 3
+bindkey -k k4 select 4  #  F4 = screen 4
+bindkey -k k5 select 5  #  F5 = screen 5
+bindkey -k k6 select 6  #  F6 = screen 6
+bindkey -k k7 select 7  #  F7 = screen 7
+bindkey -k k8 select 8  #  F8 = screen 8
+bindkey -k k9 select 9  #  F9 = screen 9
+bindkey -k F1 prev      # F11 = prev
+bindkey -k F2 next      # F12 = next
+
+# tell screen that you term can scroll
+termcapinfo xterm ti@:te@
+# bind Shift+PgUp/PgDn
+bindkey -m "^[[5;2~" stuff ^b
+bindkey -m "^[[6;2~" stuff ^f
+
+# Dynamic titles.
+shelltitle '$|bash'
+
+# map alt to switch screens
+bindkey "\261" select 1
+bindkey "\262" select 2 
+bindkey "\263" select 3 
+
+defscrollback 5000      # default: 100
+

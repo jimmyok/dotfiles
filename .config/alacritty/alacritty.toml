@@ -1,0 +1,13 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/solarized_dark.toml"
+]
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+opacity = 0.9
+
+[window.padding]
+x = 25
+y = 20
